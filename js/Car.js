@@ -3,12 +3,12 @@ export default class Car {
         this._x = x;
         this._y = y;
         this._direction = direction;
-        let dimensions = 5;
-        this._height = dimensions;
-        this._width = dimensions;
+        this._height = 4;
+        this._width = this.height/2;
         this._carImg = "assets/car.svg";
         Car.newCarCreated();
         this._id = Car._numCars;
+        this.create();
         this.render();
     }
 
@@ -40,6 +40,10 @@ export default class Car {
         return this._direction;
     }
 
+    get car() {
+        return this._car;
+    }
+
     static get numCars() {
         return Car._numCars;
     }
@@ -52,14 +56,12 @@ export default class Car {
         }
     }
 
-    render() {
-        let world = document.getElementById("world");
-
+    create() {
         let wrapper = document.createElement("div");
         let wrapperIDAttribute = document.createAttribute("id");
         wrapperIDAttribute.value = "carWrapper" + this.id;
         let wrapperStyleAttribute = document.createAttribute("style");
-        wrapperStyleAttribute.value = "position: absolute; top: " + (this.y - (this.height/2)) + "vh; left: " + (this.x  - (this.width/2)) + "vw; height: " + this.height + "vh; transform: rotate(" + this.direction + "deg); margin: 0;";
+        wrapperStyleAttribute.value = "position: relative; top: " + (this.y - (this.height/2)) + "vh; left: " + (this.x  - (this.width/2)) + "vw; transform: rotate(" + this.direction + "deg); margin: 0;";
         wrapper.setAttributeNode(wrapperIDAttribute);
         wrapper.setAttributeNode(wrapperStyleAttribute);
 
@@ -69,7 +71,7 @@ export default class Car {
         let carIDAttribute = document.createAttribute("id");
         carIDAttribute.value = "car" + this.id;
         let carStyleAttribute = document.createAttribute("style");
-        carStyleAttribute.value = "margin: 0;";
+        carStyleAttribute.value = "height: " + this.height + "vh;";
         car.setAttributeNode(carClassAttribute);
         car.setAttributeNode(carIDAttribute);
         car.setAttributeNode(carStyleAttribute);
@@ -80,7 +82,7 @@ export default class Car {
         let assetSrcAttribute = document.createAttribute("src");
         assetSrcAttribute.value = this.carImg;
         let assetStyleAttribute = document.createAttribute("style");
-        assetStyleAttribute.value = "margin: 0; height: " + this.height + "vh";
+        assetStyleAttribute.value = "height: " + this.height + "vh";
         asset.setAttributeNode(assetClassAttribute);
         asset.setAttributeNode(assetSrcAttribute);
         asset.setAttributeNode(assetStyleAttribute);
@@ -88,6 +90,11 @@ export default class Car {
         car.appendChild(asset);
         wrapper.appendChild(car);
 
-        world.appendChild(wrapper);
+        this._car = wrapper;
+    }
+
+    render() {
+        let world = document.getElementById("world");
+        world.appendChild(this.car);
     }
 }

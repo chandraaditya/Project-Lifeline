@@ -1,0 +1,21 @@
+html{
+    min-height: 100vh;
+    position: relative;
+}
+body{
+    margin: 0;
+    height: 100vh;
+}
+.screen{
+    height: 5vw;
+    width: 5vw;
+    border: solid black;
+    position: absolute;
+    top: -2.5vw;
+    left: -2.5vw;
+}
+.car {
+    height: 100%;
+    width: 100%;
+    transform: rotate(90deg);
+}

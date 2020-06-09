@@ -16,6 +16,3 @@ body{
     position: relative;
     overflow: hidden;
 }
-.car_img {
-    transform: rotate(90deg);
-}

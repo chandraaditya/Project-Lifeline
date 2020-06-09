@@ -5,7 +5,8 @@ let b = [];
 
 let a = function() {
     for (let i = 0; i < 10; i++) {
-        b.push(new Car(Math.floor(Math.random()*100), Math.floor(Math.random()*100)))
+        b.push(new Car(Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), [0, 90, 180, 270][Math.floor(Math.random()*4)]));
+        console.log("Car created! ID: " + Car.numCars);
     }
 }
 

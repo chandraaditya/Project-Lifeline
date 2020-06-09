@@ -6,16 +6,16 @@ body{
     margin: 0;
     height: 100vh;
 }
-.screen{
-    height: 5vw;
-    width: 5vw;
-    border: solid black;
+#world{
     position: absolute;
-    top: -2.5vw;
-    left: -2.5vw;
 }
-.car {
+.screen{
+    margin: 0;
     height: 100%;
     width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.car_img {
     transform: rotate(90deg);
 }

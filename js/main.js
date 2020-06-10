@@ -1,15 +1,14 @@
-import anime from "../bin/anime-master/lib/anime.es.js";
+// import anime from "../bin/anime-master/lib/anime.es.js";
 import Car from "../js/Car.js";
 
+let a = new Car(50, 50, 0);
 
-
-
-
-
-
-
-
-// let a = new Car(50, 50, 90);
+// anime({
+//     targets: "#" + a.ID,
+//     translateX: 250,
+//     easing: 'easeInOutExpo',
+//     duration: 800
+// })
 
 // let b = [];
 //
@@ -27,7 +26,7 @@ import Car from "../js/Car.js";
 
 // let path = anime.path('#test-path path');
 // anime({
-//     targets: '.car',
+//     targets: '#' + a.ID,
 //     translateX: path('x'),
 //     translateY:path('y'),
 //     rotate: path('angle'),

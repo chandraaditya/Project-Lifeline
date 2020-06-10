@@ -7,7 +7,8 @@ body{
     height: 100vh;
 }
 #world{
-    position: absolute;
+    min-height: 150vh;
+    min-width: 150vw;
 }
 .screen{
     margin: 0;
@@ -15,4 +16,10 @@ body{
     width: 100%;
     position: relative;
     overflow: hidden;
+}
+.dot {
+    height: 4vh;
+    width: 4vh;
+    background-color: #bbb;
+    border-radius: 50%;
 }

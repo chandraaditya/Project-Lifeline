@@ -3,11 +3,12 @@ export default class Car {
         this._x = x;
         this._y = y;
         this._direction = direction;
-        this._height = 4;
-        this._width = this.height/2;
+        this._size = 4;
+        this._height = this._size;
+        this._width = this._size;
         this._carImg = "assets/car.svg";
         Car.newCarCreated();
-        this._id = Car._numCars;
+        this._num = Car.numCars;
         this.create();
         this.render();
     }
@@ -20,8 +21,8 @@ export default class Car {
         return this._y;
     }
 
-    get id() {
-        return this._id;
+    get num() {
+        return this._num;
     }
 
     get height() {
@@ -44,6 +45,14 @@ export default class Car {
         return this._car;
     }
 
+    get ID() {
+        return "car" + this.num;
+    }
+
+    get size() {
+        return this._size;
+    }
+
     static get numCars() {
         return Car._numCars;
     }
@@ -59,9 +68,9 @@ export default class Car {
     create() {
         let wrapper = document.createElement("div");
         let wrapperIDAttribute = document.createAttribute("id");
-        wrapperIDAttribute.value = "carWrapper" + this.id;
+        wrapperIDAttribute.value = "carWrapper" + this.num;
         let wrapperStyleAttribute = document.createAttribute("style");
-        wrapperStyleAttribute.value = "position: relative; top: " + (this.y - (this.height/2)) + "vh; left: " + (this.x  - (this.width/2)) + "vw; transform: rotate(" + this.direction + "deg); margin: 0;";
+        wrapperStyleAttribute.value = "position: absolute; top: " + (this.y - (this.height/2)) + "vh; left: " + (this.x  - (this.width/2)) + "vw; transform: rotate(" + this.direction + "deg); ";
         wrapper.setAttributeNode(wrapperIDAttribute);
         wrapper.setAttributeNode(wrapperStyleAttribute);
 
@@ -69,9 +78,9 @@ export default class Car {
         let carClassAttribute = document.createAttribute("class");
         carClassAttribute.value = "car";
         let carIDAttribute = document.createAttribute("id");
-        carIDAttribute.value = "car" + this.id;
+        carIDAttribute.value = "car" + this.num;
         let carStyleAttribute = document.createAttribute("style");
-        carStyleAttribute.value = "height: " + this.height + "vh;";
+        carStyleAttribute.value = "height: " + this.height + "vh; width: " + this.width + "vh; position: relative; transform: rotate(" + this.direction + "deg); ";
         car.setAttributeNode(carClassAttribute);
         car.setAttributeNode(carIDAttribute);
         car.setAttributeNode(carStyleAttribute);
@@ -82,7 +91,7 @@ export default class Car {
         let assetSrcAttribute = document.createAttribute("src");
         assetSrcAttribute.value = this.carImg;
         let assetStyleAttribute = document.createAttribute("style");
-        assetStyleAttribute.value = "height: " + this.height + "vh";
+        assetStyleAttribute.value = "transform: rotate(" + this.direction + "deg); height: " + this.size + "vh;" + "position: relative; margin: 0;";
         asset.setAttributeNode(assetClassAttribute);
         asset.setAttributeNode(assetSrcAttribute);
         asset.setAttributeNode(assetStyleAttribute);

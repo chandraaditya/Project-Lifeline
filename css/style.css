@@ -17,9 +17,4 @@ body{
     position: relative;
     overflow: hidden;
 }
-.dot {
-    height: 4vh;
-    width: 4vh;
-    background-color: #bbb;
-    border-radius: 50%;
-}
+

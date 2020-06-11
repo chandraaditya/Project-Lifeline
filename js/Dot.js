@@ -90,13 +90,13 @@ export default class Dot {
 
         let asset = document.createElement("img");
         let assetClassAttribute = document.createAttribute("class");
-        assetClassAttribute.value = "dot_img";
+        assetClassAttribute.value = "dot-img";
         let assetIDAttribute = document.createAttribute("id");
         assetIDAttribute.value = "dot" + this.num;
         let assetSrcAttribute = document.createAttribute("src");
         assetSrcAttribute.value = this.dotImage;
         let assetStyleAttribute = document.createAttribute("style");
-        assetStyleAttribute.value = "height: " + this.size + "vh; width: " + this.size + "vh; transform: rotate(" + this.direction + "deg)";
+        assetStyleAttribute.value = "transform: rotate(" + this.direction + "deg)";
         // transform: rotate(" + this.direction + "deg)
         //
         asset.setAttributeNode(assetClassAttribute);

@@ -1,9 +1,11 @@
 import anime from "../bin/anime-master/lib/anime.es.js";
 import Dot from "./Dot.js";
+import Grid from "./Grid.js";
 
 
 
 
+let world = new Grid();
 
 
 

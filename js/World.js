@@ -1,8 +1,9 @@
-import Dot from "./Dot";
-
 export default class World{
     constructor() {
-        this._gridSize = Dot._size * 4;
-
     }
+    // let drag = false;
+    //
+    // document.addEventListener('mousedown', () => drag = false);
+    // document.addEventListener('mousemove', () => drag = true);
+    // document.addEventListener('mouseup', () => console.log(drag ? 'drag' : 'click'));
 }

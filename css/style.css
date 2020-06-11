@@ -8,7 +8,14 @@ body{
     height: 100vh;
     width: 100vw;
 }
-#world{
+.screen{
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.world{
     height: 100vh;
     width: 100vh;
     background-color: #00D672;
@@ -18,11 +25,17 @@ body{
     align-content: center;
     justify-content: center;
 }
-.screen{
-    margin: 0;
-    height: 100%;
+.row-container{
+    display: flex;
     width: 100%;
-    position: relative;
-    overflow: hidden;
+    height: 4%;
+    box-shadow: 0 0 0 1px black inset;
 }
-
+.grid{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    width: 4%;
+    height: 100%;
+    box-shadow: 0 0 0 1px black inset;
+}

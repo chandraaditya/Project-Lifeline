@@ -1,14 +1,22 @@
 html{
     min-height: 100vh;
+    min-width: 100vw;
     position: relative;
 }
 body{
     margin: 0;
     height: 100vh;
+    width: 100vw;
 }
 #world{
-    min-height: 150vh;
-    min-width: 150vw;
+    height: 100vh;
+    width: 100vh;
+    background-color: #00D672;
+    flex-direction: row;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
 }
 .screen{
     margin: 0;

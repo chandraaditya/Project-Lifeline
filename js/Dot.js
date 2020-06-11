@@ -9,9 +9,9 @@ export default class Dot {
         this._x = x;
         this._y = y;
         this._direction = direction;
-        this._size = 1;
-        this._height = this._size;
-        this._width = this._size;
+        Dot._size = 1;
+        this._height = Dot._size;
+        this._width = Dot._size;
         this._dotImage = "assets/U.svg";
         Dot.newDotCreated();
         this._num = Dot.numDots;
@@ -56,7 +56,7 @@ export default class Dot {
     }
 
     get size() {
-        return this._size;
+        return Dot._size;
     }
 
     static get numDots() {

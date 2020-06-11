@@ -8,7 +8,7 @@ import Dot from "./Dot.js";
 
 
 //Creating DOT and moving DOT.
-// let a = new Dot(0, 0, 90);
+// let a = new Dot(50, 50, 90);
 //
 // let path = anime.path('#path');
 //

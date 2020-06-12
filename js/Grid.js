@@ -26,7 +26,7 @@ export default class Grid{
                 gridBoxClass.value = "grid";
                 gridBox.setAttributeNode(gridBoxClass);
                 let gridBoxID = document.createAttribute("id");
-                gridBoxID.value = `box${i}${j}`;
+                gridBoxID.value = `box ${i} ${j}`;
                 gridBox.setAttributeNode(gridBoxID);
 
                 let road = document.createElement("div");
@@ -34,7 +34,7 @@ export default class Grid{
                 roadClass.value = "road";
                 road.setAttributeNode(roadClass);
                 let roadID = document.createAttribute("id");
-                roadID.value = `road${i}${j}`;
+                roadID.value = `road ${i} ${j}`;
                 road.setAttributeNode(roadID);
 
                 let gridBoxActive = document.createElement("div");
@@ -42,11 +42,11 @@ export default class Grid{
                 gridBoxActiveAttribute.value = "grid-box-active";
                 gridBoxActive.setAttributeNode(gridBoxActiveAttribute);
                 let gridBoxActiveID = document.createAttribute("id");
-                gridBoxActiveID.value = `activeBox${i}${j}`;
+                gridBoxActiveID.value = `activeBox ${i} ${j}`;
                 gridBoxActive.setAttributeNode(gridBoxActiveID);
                 gridBoxActive.addEventListener("mouseover", () => {
                     if (gridBox.id !== Roads.current) {
-                        Roads.current = gridBox.id;
+                        Roads.current = road.id;
                         Roads.startDrawing = true;
                     } else {
                         Roads.startDrawing = false;

@@ -3,11 +3,14 @@ export default class Roads {
     static _current;
     static _drawRoads;
     static _startDrawing;
+    static _roads;
+
     constructor() {
-        Roads._last = null;
-        Roads._current = null;
+        Roads._last = -1;
+        Roads._current = -1;
         Roads._drawRoads = false;
         Roads._startDrawing = false;
+        Roads._roads = Array(25).fill().map(() => Array(25).fill(0));
     }
 
     static get last() {
@@ -25,6 +28,9 @@ export default class Roads {
     static set current(value) {
         Roads.last = Roads.current;
         Roads._current = value;
+        if (Roads.startDrawing && Roads.drawRoads && Roads.last !== -1 && Roads.current !== -1) {
+            Roads.buildRoad();
+        }
     }
 
     static get startDrawing() {
@@ -44,16 +50,10 @@ export default class Roads {
     }
 
     static buildRoad() {
-        while (Roads.drawRoads) {
-            if (Roads.startDrawing) {
-                console.log("Drawing!");
-                let last = document.getElementById(Roads._last);
-                let current = document.getElementById(Roads._current);
-                last.innerHTML = "x";
-                current.innerHTML = "x";
-            }
-        }
-        Roads.startDrawing = false;
+        let last = document.getElementById(Roads._last);
+        let current = document.getElementById(Roads._current);
+        last.style.backgroundColor = "black";
+        current.style.backgroundColor = "black";
     }
 
 }

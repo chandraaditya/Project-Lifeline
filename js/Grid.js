@@ -1,3 +1,5 @@
+import Roads from "./Roads.js";
+
 export default class Grid{
     constructor() {
         this.create();
@@ -26,6 +28,15 @@ export default class Grid{
                 let gridBoxID = document.createAttribute("id");
                 gridBoxID.value = `box${i}${j}`;
                 gridBox.setAttributeNode(gridBoxID);
+
+                let road = document.createElement("div");
+                let roadClass = document.createAttribute("class");
+                roadClass.value = "road";
+                road.setAttributeNode(roadClass);
+                let roadID = document.createAttribute("id");
+                roadID.value = `road${i}${j}`;
+                road.setAttributeNode(roadID);
+
                 let gridBoxActive = document.createElement("div");
                 let gridBoxActiveAttribute = document.createAttribute("class");
                 gridBoxActiveAttribute.value = "grid-box-active";
@@ -33,6 +44,16 @@ export default class Grid{
                 let gridBoxActiveID = document.createAttribute("id");
                 gridBoxActiveID.value = `activeBox${i}${j}`;
                 gridBoxActive.setAttributeNode(gridBoxActiveID);
+                gridBoxActive.addEventListener("mouseover", () => {
+                    if (gridBox.id !== Roads.current) {
+                        Roads.current = gridBox.id;
+                        Roads.startDrawing = true;
+                    } else {
+                        Roads.startDrawing = false;
+                    }
+                });
+
+                gridBox.appendChild(road);
                 gridBox.appendChild(gridBoxActive);
                 gridRow.appendChild(gridBox);
             }
@@ -47,3 +68,9 @@ export default class Grid{
     }
 
 }
+
+// let drag = false;
+//
+// document.addEventListener('mousedown', () => drag = false);
+// document.addEventListener('mousemove', () => drag = true);
+// document.addEventListener('mouseup', () => console.log(drag ? 'drag' : 'click'));

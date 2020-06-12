@@ -5,6 +5,8 @@
 //Way to create paths using SVG
 
 export default class Dot {
+    static _size;
+    static _num;
     constructor(x, y, direction = 0) {
         this._x = x;
         this._y = y;
@@ -14,7 +16,7 @@ export default class Dot {
         this._width = Dot._size;
         this._dotImage = "assets/U.svg";
         Dot.newDotCreated();
-        this._num = Dot.numDots;
+        Dot._num = Dot.numDots;
         this.create();
         this.render();
     }
@@ -28,7 +30,7 @@ export default class Dot {
     }
 
     get num() {
-        return this._num;
+        return Dot._num;
     }
 
     get height() {

@@ -36,6 +36,12 @@ export default class Grid{
                 let roadID = document.createAttribute("id");
                 roadID.value = `road ${i} ${j}`;
                 road.setAttributeNode(roadID);
+                let roadX = document.createAttribute("data-x");
+                roadX.value = `${i}`;
+                road.setAttributeNode(roadX);
+                let roadY = document.createAttribute("data-y");
+                roadY.value = `${j}`;
+                road.setAttributeNode(roadY);
 
                 let gridBoxActive = document.createElement("div");
                 let gridBoxActiveAttribute = document.createAttribute("class");

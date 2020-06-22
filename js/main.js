@@ -3,13 +3,15 @@ import Dot from "./Dot.js";
 import Grid from "./Grid.js";
 import Roads from "./Roads.js";
 import World from "./World.js";
+import Hashmap from "../data/Hashmap.js";
 
 
 
 
 let world1 = new Grid();
 let world = new World();
-//
+let roads = new Roads();
+
 
 
 //Creating DOT and moving DOT.

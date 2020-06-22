@@ -15,7 +15,6 @@ export default class World{
             Roads.drawRoads = false;
             console.log("Stop drawing!");
         });
-        console.log(World._roads);
     }
 
     static getSurrounding(grid) {

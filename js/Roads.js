@@ -1,8 +1,11 @@
+import Hashmap from "../data/Hashmap.js";
+
 export default class Roads {
     static _last;
     static _current;
     static _drawRoads;
     static _startDrawing;
+    static _grid;
     static _roads;
 
     constructor() {
@@ -10,7 +13,8 @@ export default class Roads {
         Roads._current = -1;
         Roads._drawRoads = false;
         Roads._startDrawing = false;
-        Roads._roads = Array(25).fill().map(() => Array(25).fill(0));
+        Roads._grid = Array(25).fill().map(() => Array(25).fill(0));
+        Roads._roads = new Map();
     }
 
     static get last() {
@@ -49,11 +53,31 @@ export default class Roads {
         Roads._drawRoads = value;
     }
 
+    static getRoadAt(grid) {
+        return Roads._roads.get(grid);
+    }
+
+    static setRoadAt(grid, road) {
+        Roads._roads.set(grid, road);
+    }
+
     static buildRoad() {
         let last = document.getElementById(Roads._last);
         let current = document.getElementById(Roads._current);
-        last.style.backgroundColor = "black";
-        current.style.backgroundColor = "black";
+        let last_x = parseInt(last.getAttribute('data-x'));
+        let last_y = parseInt(last.getAttribute('data-y'));
+        let current_x = parseInt(current.getAttribute('data-x'));
+        let current_y = parseInt(current.getAttribute('data-y'));
+        if (Roads._grid[last_x][last_y] === 0) {
+            Roads._grid[last_x][last_y] = 1;
+            last.style.backgroundColor = "black";
+        }
+        if (Roads._grid[current_x][current_y] === 0) {
+            Roads._grid[current_x][current_y] = 1;
+            current.style.backgroundColor = "black";
+        }
+        Roads._hashmap.addNode(last_x, last_y, current_x, current_y);//TODO: will cause conflict!!! so need to add another coordinate to existing node instead
+        console.log(Roads._hashmap);
+        console.log(Roads._grid);
     }
-
 }

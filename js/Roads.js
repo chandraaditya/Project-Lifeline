@@ -1,4 +1,5 @@
 import Hashmap from "../data/Hashmap.js";
+import Coordinate from "../data/Coordinate";
 
 export default class Roads {
     static _last;
@@ -14,7 +15,7 @@ export default class Roads {
         Roads._drawRoads = false;
         Roads._startDrawing = false;
         Roads._grid = Array(25).fill().map(() => Array(25).fill(0));
-        Roads._roads = new Map();
+        Roads._hashmap = new Hashmap();
     }
 
     static get last() {
@@ -76,7 +77,7 @@ export default class Roads {
             Roads._grid[current_x][current_y] = 1;
             current.style.backgroundColor = "black";
         }
-        Roads._hashmap.addNode(last_x, last_y, current_x, current_y);//TODO: will cause conflict!!! so need to add another coordinate to existing node instead
+        Roads._hashmap.addRoad(new Coordinate(last_x, last_y), new Coordinate(current_x, current_y));
         console.log(Roads._hashmap);
         console.log(Roads._grid);
     }

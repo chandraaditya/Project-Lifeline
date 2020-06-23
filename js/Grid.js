@@ -1,4 +1,4 @@
-import Roads from "./Roads.js";
+import WorldBuilder from "./WorldBuilder.js";
 
 export default class Grid{
     constructor() {
@@ -51,11 +51,11 @@ export default class Grid{
                 gridBoxActiveID.value = `activeBox ${i} ${j}`;
                 gridBoxActive.setAttributeNode(gridBoxActiveID);
                 gridBoxActive.addEventListener("mouseover", () => {
-                    if (gridBox.id !== Roads.current) {
-                        Roads.current = road.id;
-                        Roads.startDrawing = true;
+                    if (gridBox.id !== WorldBuilder.current) {
+                        WorldBuilder.current = road.id;
+                        WorldBuilder.startDrawing = true;
                     } else {
-                        Roads.startDrawing = false;
+                        WorldBuilder.startDrawing = false;
                     }
                 });
 

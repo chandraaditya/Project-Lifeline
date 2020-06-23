@@ -1,4 +1,4 @@
-import Roads from "./Roads.js";
+import WorldBuilder from "./WorldBuilder.js";
 
 export default class World{
     static _world;
@@ -7,12 +7,12 @@ export default class World{
         World._world = document.getElementById("world");
         let world = document.getElementById("world");
         world.addEventListener("pointerdown", () => {
-            Roads.drawRoads = true;
+            WorldBuilder.drawRoads = true;
             console.log("Draw roads!");
-            Roads.drawRoads = true;
+            WorldBuilder.drawRoads = true;
         });
         world.addEventListener("pointerup", () => {
-            Roads.drawRoads = false;
+            WorldBuilder.drawRoads = false;
             console.log("Stop drawing!");
         });
     }

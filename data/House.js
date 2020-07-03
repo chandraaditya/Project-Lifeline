@@ -7,7 +7,7 @@ export default class House extends Node{
         super(coordinates, 'HOUSE');
         this._to = null;
     }
-    
+
     get to() {
         return this._to;
     }

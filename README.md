@@ -1,3 +1,3 @@
 # Project Lifeline
 
-A replica of the game Mini Motorways
+City builder game on vanilla JavaScript
